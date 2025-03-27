@@ -50,6 +50,20 @@ _insert image_
 Now, let's get the full path of our directory with <code>pwd</code> so we can add our <code>local.rules</code> file location to <code>/etc/snort/snort.lua</code>. We can use the following command to edit the <code>/etc/snort/snort.lua</code> file while still remaining in our current directory:
 
 _insert image_
+_insert image_
+
+Scroll down to section 5 of the file, and add <code>include = "...local.rules",</code>, replacing the three dots with the results of the <code>pwd</code> command you did earlier. Don't forget to add the comma at the end of the quotes! Forgetting to do so will cause an error. See the screenshot below for an example of how the file should look after adding the line:
+
+_insert image_
+
+To save and quit the file, press <code>Ctrl+S</code> followed by <code>Ctrl+X</code>.
+
+We can verify that the configuration file works by typing <code>sudo snort -c /etc/snort/snort.lua</code>. If you get an error, ensure that you entered the right path in the <code>snort.lua</code> file, and don't forget the comma! You'll know that the configuration file works if Snort runs and you get a message saying that Snort successfully validated the configuration:
+
+_insert image_
+
+<h1>3. Writing Rules in Snort 3</h1>
+
 
 
 
