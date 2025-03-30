@@ -65,6 +65,46 @@ We can verify that the configuration file works by typing <code>sudo snort -c /e
 
 <h1>3. Writing Rules in Snort 3</h1>
 
+Now that we have verified that the configuration is working, it's time to start writing our own custom rules. Let's go over Snort 3's rule writing structure:
+
+<table align="center">
+  <tr>
+    <th> Action </th>
+    <th> Protocol </th>
+    <th> Source IP </th>
+    <th> Source Port </th>
+    <th> Direction </th>
+    <th> Destination IP </th>
+    <th> Destination Port </th>
+    <th> Options </th>
+  </tr>
+  <tr>
+    <th> Alert<br>Drop<br>Reject </th>
+    <th> TCP<br>UDP<br>ICMP </th>
+    <th> any </th>
+    <th> any </th>
+    <th> <> </th>
+    <th> any </th>
+    <th> any </th>
+    <th> Msg<br>Content<br>Sid </th>
+  </tr>
+</table>
+
+As you can see above, each rule has several parts. Let's look at what each part of the rule means:
+
+Action: This is what Snort does when a rule gets triggred. Some common actions are alert, drop, and reject.
+
+Protocol: This tells Snort the kind of protocol it should look for. Snort 3 supports IP, ICMP, TCP, and UDP.
+
+Source IP: The source IP address a rule should apply to. This can be set manually in the rules file, set as a variable in the snort config file, or it can be set to any.
+
+
+
+Now that we know how to write rules, let's open our </code>local.rules<code> file in our current directory. Open up the file in your preferred text editor and make sure that the file is empty.
+
+_insert image_
+
+
 
 
 
