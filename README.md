@@ -92,12 +92,21 @@ Now that we have verified that the configuration is working, it's time to start 
 
 As you can see above, each rule has several parts. Let's look at what each part of the rule means:
 
-Action: This is what Snort does when a rule gets triggred. Some common actions are alert, drop, and reject.
+<b>Action:</b> This is what Snort does when a rule gets triggred. Some common actions are alert, drop, and reject.
 
-Protocol: This tells Snort the kind of protocol it should look for. Snort 3 supports IP, ICMP, TCP, and UDP.
+<b>Protocol:</b> This tells Snort the kind of protocol it should look for. Snort 3 supports IP, ICMP, TCP, and UDP.
 
-Source IP: The source IP address a rule should apply to. This can be set manually in the rules file, set as a variable in the snort config file, or it can be set to any.
+<b>Source IP:</b> The source IP address a rule should apply to. This can be set manually in the rules file, set as a variable in the snort config file, or it can be set to any.
 
+<b>Source Port:</b> The source port field specifies which port(s) to look at. This can be a static port, range, a list, or set to any.
+
+<b>Direction:</b> The direction operator indicates the flow of traffic. This can be either <code>-></code> or <code><></code>
+
+<b>Destination IP:</b> The destination IP address a rule should apply to. This can be set manually in the rules file, set as a variable in the snort config file, or it can be set to any.
+
+<b>Destination Port:</b> The destination port field specifies which port(s) to look at. This can be a static port, range, a list, or set to any.
+
+<b>Options:</b> There are several options that go along with each rule, separated by a <code>;</code>. Some important ones include <code>msg</code>, <code>content</code>, and <code>sid</code>. Msg 
 
 
 Now that we know how to write rules, let's open our </code>local.rules<code> file in our current directory. Open up the file in your preferred text editor and make sure that the file is empty.
