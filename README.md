@@ -108,7 +108,13 @@ As you can see above, each rule has several parts. Let's look at what each part 
 
 <b>Options:</b> There are several options that go along with each rule, separated by a <code>;</code>. Some important ones include <code>msg</code>, <code>content</code>, and <code>sid</code>. Msg appears in the console or log when the rule is triggered. It is normally a few words that summarize the event. Content indicates that a specific match of something must be found in payload data. For example, if content is set to "hello", then the packet would have to include "hello" in order for the rule to be triggered. Sid is the rule's signature id. Local rules should have sid values starting above 1000000, as Snort reserves values 0-999999 for rules included with the Snort distribution.
 
-Now that we know how to write rules, let's open our <code>local.rules</code> file in our current directory. Open up the file in your preferred text editor and make sure that the file is empty.
+In order to write our rules, let's find out the IP address of our machine so we could use it in the source/destination ip parameters. In the terminal, type <code>ifconfig</code> and hit enter. You will see your loopback address and another interface. As shown in the screenshot, mine is called "eth0", but yours might be called something different.
+
+_insert image_
+
+Let's take not that our "inet", or internet address, is 10.0.2.15. Once again, yours may be different.
+
+Now we have everthing we need to begin writing rules in our <code>local.rules</code> file. Open up the file in your preferred text editor and make sure that the file is empty.
 
 _insert image_
 
@@ -117,6 +123,8 @@ Let's write three simple rules that generate alerts:
 1. When any icmp traffic is detected
 2. When outgoing http traffic is detected
 3. When incoming http traffic contains a certain keyword in the payload
+
+
 
 
 
