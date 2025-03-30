@@ -63,7 +63,7 @@ We can verify that the configuration file works by typing <code>sudo snort -c /e
 
 <img src="https://github.com/eric-lgonz/Network-Traffic-Analysis-and-NIDS-NIPS-Configuration/blob/main/assets/Making%20a%20Workspace%20for%20Snort%20-%206.png">
 
-<h1>3. Writing Rules in Snort 3</h1>
+<h1>3. Writing Rules in Snort</h1>
 
 Now that we have verified that the configuration is working, it's time to start writing our own custom rules. Let's go over Snort 3's rule writing structure:
 
@@ -112,7 +112,7 @@ In order to write our rules, let's find out the IP address of our machine so we 
 
 _insert image_
 
-Let's take not that our "inet", or internet address, is 10.0.2.15. Once again, yours may be different.
+Now turn on promiscuous mode to ensure that all of our icmp traffic can be seen. Just type in <code>sudo ip link set eth0 promisc on</code>, replacing "eth0" with the name of your interface. Also, let's take note that our "inet", or internet address, is 10.0.2.15. Once again, yours may be different.
 
 Now we have everthing we need to begin writing rules in our <code>local.rules</code> file. Open up the file in your preferred text editor and make sure that the file is empty.
 
@@ -120,9 +120,32 @@ _insert image_
 
 Let's write three simple rules that generate alerts:
 
-1. When any icmp traffic is detected
-2. When outgoing http traffic is detected
-3. When incoming http traffic contains a certain keyword in the payload
+1. When any ICMP traffic is detected
+2. When outgoing tcp traffic is detected
+3. When incoming HTTP traffic contains a certain keyword in the payload
+
+Now using your knowledge of the Snort rule structure, write the corresponding rules in the file, with each rule on a separate line:
+
+_insert image_
+
+Now save the file and exit out of it, and we can begin testing our rules!
+
+<h1>4. Running Snort</h1>
+
+The first Snort command we will use is <code>sudo snort -c /etc/snort/snort.lua -A cmg</code>. This "-c /etc/snort/snort.lua" specifies that we want to run snort with the default configuration file (which includes our local rules); the "-A full" will provide alerts in the console with full packet details; and the "-i eth0" specifies which interface we want to listen on.
+
+Run the command, then open up another terminal and enter the command <code>ping -c 3 google.com</code>. This will simulate ICMP traffic:
+
+_insert image_
+_insert image_
+
+Go back to your terminal with snort running and you should the alerts in the console!
+
+_insert image_
+
+
+
+
 
 
 
