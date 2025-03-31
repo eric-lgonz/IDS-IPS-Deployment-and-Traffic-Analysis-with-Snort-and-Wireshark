@@ -177,7 +177,7 @@ And there we go! We were able to search the entire packet capture and find the m
 
 <h1>Conclusion</h1>
 
-In this walkthrough, we covered the basics of Snort 3. We went over the installation process, writing custom rules, and analyzing traffic both in real time and using packet captures. There are many more intricacies to Snort, and I encourage you to visit the Snort 3 website if you want to learn more. Thank you for reading this guide, and you can find more guides and writeups like this on my github page.
+In this walkthrough, we covered the basics of Snort 3. We went over the installation process, writing custom rules, and analyzing traffic both in real time and using packet captures. There are many more intricacies to Snort, and I encourage you to visit the <a href="https://www.snort.org/"> Snort website<a/> if you want to learn more. Thank you for reading this guide, and you can find more projects and writeups like this <a href="https://github.com/eric-lgonz"> here<a/>.
 
 
 
