@@ -161,11 +161,23 @@ Now let's capture traffic from "http://gaia.cs.umass.edu/wiresharklabs/alice.txt
 
 Now let's go back to the terminal and test out rules 2 and 3 with our new pcap files!
 
-We can specify to Snort that we want to read in files
+We can tell Snort that we want to read in a certain file by using the <code>-r <filename></code> command. Let's run <code>sudo snort -c /etc/snort/snort.lua -r basic_tcp.pcapng -A cmg</code>:
 
+_insert image_
+_insert image_
 
+As shown in the image above, we can see that rule number 2 was triggered several times, and that it tells us that outgoing tcp traffic was found.
 
+To test our last rule, let's use a similar command, <code>sudo snort -c /etc/snort/snort.lua -r http_payload.pcapng -A cmg</code>:
 
+_insert image_
+_insert image_
+
+And there we go! We were able to search the entire packet capture and find the matching packet that contained "HTTP/" in the payload data, telling us which HTTP version was used. This was done using the all-important "content" rule option. This option is often used to detect malware, exploitation attempts, or suspicious file transfers, and it can be customized even further with additional parameters that we did not cover here.
+
+<h1>Conclusion</h1>
+
+In this walkthrough, we covered the basics of Snort 3. We went over the installation process, writing custom rules, and analyzing traffic both in real time and using packet captures. There are many more intricacies to Snort, and I encourage you to visit the Snort 3 website if you want to learn more. Thank you for reading this guide, and you can find more guides and writeups like this on my github page.
 
 
 
