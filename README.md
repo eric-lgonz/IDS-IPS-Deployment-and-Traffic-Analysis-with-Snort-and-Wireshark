@@ -163,15 +163,15 @@ Now let's go back to the terminal and test out rules 2 and 3 with our new pcap f
 
 We can tell Snort that we want to read in a certain file by using the <code>-r <filename></code> command. Let's run <code>sudo snort -c /etc/snort/snort.lua -r basic_tcp.pcapng -A cmg</code>:
 
-_insert image_
-_insert image_
+<img src="https://github.com/eric-lgonz/Network-Traffic-Analysis-and-NIDS-NIPS-Configuration/blob/main/assets/Running%20Snort%20-%207.png">
+<img src="https://github.com/eric-lgonz/Network-Traffic-Analysis-and-NIDS-NIPS-Configuration/blob/main/assets/Running%20Snort%20-%208.png">
 
 As shown in the image above, we can see that rule number 2 was triggered several times, and that it tells us that outgoing tcp traffic was found.
 
 To test our last rule, let's use a similar command, <code>sudo snort -c /etc/snort/snort.lua -r http_payload.pcapng -A cmg</code>:
 
-_insert image_
-_insert image_
+<img src="https://github.com/eric-lgonz/Network-Traffic-Analysis-and-NIDS-NIPS-Configuration/blob/main/assets/Running%20Snort%20-%209.png">
+<img src="https://github.com/eric-lgonz/Network-Traffic-Analysis-and-NIDS-NIPS-Configuration/blob/main/assets/Running%20Snort%20-%2010.png">
 
 And there we go! We were able to search the entire packet capture and find the matching packet that contained "HTTP/" in the payload data, telling us which HTTP version was used. This was done using the all-important "content" rule option. This option is often used to detect malware, exploitation attempts, or suspicious file transfers, and it can be customized even further with additional parameters that we did not cover here.
 
