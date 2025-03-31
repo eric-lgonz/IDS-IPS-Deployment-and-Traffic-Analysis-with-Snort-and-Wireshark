@@ -134,20 +134,16 @@ Now save the file and exit out of it, and we can begin testing our rules!
 
 The first Snort command we will use is <code>sudo snort -c /etc/snort/snort.lua -A cmg -i eth0 --daq afpacket</code>. This "-c /etc/snort/snort.lua" specifies that we want to run snort with the default configuration file (which includes our local rules); "-A cmg" will provide alerts in the console with packet details in plaintext and hex; "-i eth0" specifies which interface we want to listen on, and "--daq afpacket" specifies that we want to use the afpacket module, which is optimized for high-performance packet capture.
 
-Run the command, then open up another terminal and enter the command <code>ping -c 3 google.com</code>. This will simulate ICMP traffic:
+Run the command, then open up another terminal and enter the command <code>ping -c 3 google.com</code>. This will simulate ICMP traffic in your Snort terminal. Make sure to do <code>Ctrl+C</code> in the terminal to stop the Snort program::
 
 _insert image_
-_insert image_
-
-Go back to your terminal with snort running and you should see alerts in the console! Make sure to do <code>Ctrl+C</code> in the terminal to stop the Snort program:
-
 _insert image_
 
 In each alert triggered, you can see the date and time it was triggered, which rule was triggered, and the details of the packet.
 
 So now we know that our first rule works, we could test our other two rules in a similar way where we start Snort and then open up our browser to capture tcp traffic. While this method works just fine, let's practice using Wireshark to capture traffic and then feed that packet capture into Snort to detect alerts.
 
-Let's begin by typing <code>sudo wireshark &</code> to open Wireshark:
+Let's begin by typing <code>wireshark &</code> to open Wireshark:
 
 _insert image_
 
@@ -155,7 +151,17 @@ Double click the interface that you used to capture the icmp traffic, and then o
 
 _insert image_
 
-Your wireshark page should have filled up with all kinds of packets. Press the red square in the top left to end the packet capture, and save the capture by pressing "File" and "Save As". Label the file <code>basic_tcp.pcapng</code> and save it.
+Your wireshark page should have filled up with all kinds of packets. Press the red square in the top left to end the packet capture, and save the capture by pressing "File" and "Save As". Label the file <code>basic_tcp.pcapng</code> and save it to the <code>Desktop/Snort</code> folder.
+
+_insert image_
+
+Now let's capture traffic from "http://gaia.cs.umass.edu/wiresharklabs/alice.txt". In Wireshark, begin a new packet capture by pressing the button shaped like a blue shark fin, and then visit "http://gaia.cs.umass.edu/wiresharklabs/alice.txt" in any browser. Once the page loads, end the capture and save it as <code>http_payload.pcapng</code>:
+
+_insert image_
+
+Now let's go back to the terminal and test out rules 2 and 3 with our new pcap files!
+
+We can specify to Snort that we want to read in files
 
 
 
