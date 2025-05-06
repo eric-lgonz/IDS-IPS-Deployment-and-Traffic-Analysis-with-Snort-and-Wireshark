@@ -1,4 +1,4 @@
-# Network-Traffic-Analysis-and-NIDS-NIPS-Configuration
+# Network-Traffic-Analysis-and-IDS-IPS-Configuration
 
 This guide provides a step-by-step walkthrough on how to:
 
