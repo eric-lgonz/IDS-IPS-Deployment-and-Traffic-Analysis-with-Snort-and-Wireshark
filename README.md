@@ -1,4 +1,4 @@
-# Network-Traffic-Analysis-and-IDS-IPS-Configuration
+# IDS/IPS-Deployment-and-Traffic-Analysis-with-Snort-and-Wireshark
 
 This guide provides a step-by-step walkthrough on how to:
 
